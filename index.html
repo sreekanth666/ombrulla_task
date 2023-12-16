@@ -13,34 +13,609 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/navbar.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <div class="container sticky px-20 navbar flex justify-between pt-5">
-        <div class="logo">
-            <img src="https://www.ombrulla.com/logo.svg" alt="Ombrulla Logo" class="h-8 md:h-8">
-        </div>
-        <input type="checkbox" class="hidden lg:hidden" name="nav-toggle" id="nav-toggle">
-        <label for="nav-toggle">
-            <i class="fa-solid fa-bars"></i>
-            <i class="fa-solid fa-xmark"></i>
-        </label>
-        <div class="options">
-            <ul class="nav-list flex font-bold">
-                <li>Home</li>
-                <li>Services</li>
-                <li>Product</li>
-                <li>About</li>
-                <li>Blog</li>
-                <li>Contact</li>
+    <!-- Landing -->
+    <div class="landing mb-24">
+        <!-- Navigation Bar -->
+        <nav class="md:px-24 px-5 navbar flex items-center justify-between py-4 w-full">
+            <div class="logo">
+              <img src="https://www.ombrulla.com/logo.svg" alt="Ombrulla Logo" class="cursor-pointer h-8 md:h-8">
+            </div>
+          
+            <button id="menu-toggle" class="md:hidden flex items-center justify-center p-2 rounded-md focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+              <span class="text-3xl font-bold">
+                <i class="fa-solid fa-bars"></i>
+              </span>
+            </button>
+          
+            <ul class="nav-list hidden md:flex font-bold whitespace-no-wrap">
+              <li class="mx-4 cursor-pointer selected">Home</li>
+              <li class="mx-4 relative group">
+                <span class="cursor-pointer">Services <i class="fa-solid fa-chevron-down"></i></span>
+                <ul class="bg-white absolute hidden group-hover:block mt-3 py-2 whitespace-no-wrap w-60">
+                  <li class="cursor-pointer px-4 py-2 border-b">AI Visual Inspection</li>
+                  <li class="cursor-pointer px-4 py-2 border-b">AI Infrastructure Inspection</li>
+                  <li class="cursor-pointer px-4 py-2 border-b">AI People Tracking</li>
+                  <li class="cursor-pointer px-4 py-2 border-b">AI Data Analytics</li>
+                </ul>
+              </li>
+              <li class="mx-4 relative group">
+                <span class="cursor-pointer">Product <i class="fa-solid fa-chevron-down"></i></span>
+                <ul class="bg-white absolute hidden group-hover:block mt-3 py-2 whitespace-no-wrap w-72">
+                  <li class="cursor-pointer px-4 py-2">Asset Performance Management</li>
+                </ul>
+              </li>
+              <li class="cursor-pointer mx-4">About</li>
+              <li class="cursor-pointer mx-4">Blog</li>
+              <li class="cursor-pointer mx-4">Contact</li>
             </ul>
+            <div id="mobile-menu" class="bg-white absolute top-0 left-0 w-1/2 h-screen overflow-auto hidden mobile-menu">
+                <div class="logo bg-slate-200 flex item-center justify-center py-4">
+                    <img src="https://www.ombrulla.com/logo.svg" alt="Ombrulla Logo" class="cursor-pointer h-8 md:h-8">
+                  </div>
+                <ul class="nav-list py-4 pl-4">
+                <li class="mb-4 border-b">
+                  <a href="#">Home</a>
+                </li>
+                <li class="mb-4 border-b">
+                  <a href="#">Services</a>
+                </li>
+                <ul class="ml-4">
+                  <li class="mb-2">AI Visual Inspection</li>
+                  <li class="mb-2">AI Infrastructure Inspection</li>
+                  <li class="mb-2">AI People Tracking</li>
+                  <li class="mb-2">AI Data Analytics</li>
+                </ul>
+                <li class="mb-4 border-b">
+                  <a href="#">Product</a>
+                </li>
+                <ul class="ml-4">
+                  <li class="mb-2">Asset Performance Management</li>
+                </ul>
+                <li class="mb-4 border-b">
+                  <a href="#">About</a>
+                </li>
+                <li class="mb-4 border-b">
+                  <a href="#">Blog</a>
+                </li>
+                <li class="mb-4">
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    
+        <!-- Hero Section -->
+        <div class="md:px-24 px-5 md:pt-0 flex flex-col md:flex-row font-semibold gap-3 h-full">
+            <div class="flex flex-col justify-center mt-24">
+                <h4 class="md:w-3/4 md:text-6xl text-6xl">Manual Inspection is <span class="primary font-normal">Slow & Error-Prone</span></h4>
+                <p class="mt-8 text-[#82858d] font-normal text-lg">AI-driven computer vision transforms manufacturing quality inspection, boosting precision and cost-efficiency while upholding product excellence.</p>
+                <div class="button mt-6 flex gap-4 flex">
+                    <button class="btn-primary md:p-4 md:px-8 p-3 rounded-full w-fit hover:bg-transparent hover:text-[#004eff] border border-[#004eff]">Schedule Call</button>
+                    <button class="hover:bg-transparent hover:text-[#004eff] btn-primary p-4 rounded-full flex items-center justify-center" style="width: 3.5rem;"><i class="fa-solid fa-play"></i></button>
+                    <p class="my-auto hidden md:block hover:text-[#004eff] cursor-pointer">Watch Video</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center justify-center w-full">
+                <img src="https://www.ombrulla.com/_astro/ai-visual-inspection_banner_1.f3232628_ZyIKMH.webp" alt="AI visual inspection" class="mask-image">
+                <svg class="shapes hidden md:block" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100,200 C153.137,200 200,153.137 200,100 C200,46.863 153.137,0 120,0 C46.863,0 0,46.863 0,130 C0,153.137 46.863,200 100,200 Z" stroke="#004eff" stroke-width="1" fill="none" />
+                </svg>
+                <svg class="shapes-2 hidden md:block" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100,200 C153.137,200 200,153.137 200,100 C200,46.863 153.137,0 120,0 C46.863,0 0,46.863 0,130 C0,153.137 46.863,200 100,200 Z" stroke="white" stroke-width="1" fill="none" />
+                </svg>
+            </div>
         </div>
     </div>
 
-    <!-- Hero Section -->
-    .grid
+    <!-- AI Service provider (Box) -->
+    <div class="service-provider m-3 md:m-auto">
+        <div class="flex flex-col box md:gap-4 gap-3 md:rounded-[3rem] rounded-[2rem] p-7 py-12 md:p-24 md:h-5/6 md:w-5/6 mx-auto my-auto">
+            <div class="flex gap-x-4 items-center">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+                <p class="text-medium md:font-bold font-normal">The Best AI Service Provider</p>
+            </div>
+           
+            <h2 class="m-0 md:w-3/4 md:text-5xl text-3xl font-semibold">Crafting Tomorrow's World with <span class="primary font-normal">AI Excellence</span></h2>
+            <p class=" m-0 mt-8 text-[#82858d] font-normal text-lg md:w-3/4">The majority of customers lack data-driven insights and automation. Using AI, Ombrulla assist clients in extracting data from diverse sources such as photos, videos, and data lakes, which can assist businesses in making data-driven insights and improving their bottom line.</p>
+            <div class="button mt-6 flex gap-4 flex">
+                <button class="hover:bg-transparent hover:text-[#004eff] btn-primary rounded-full flex items-center justify-center" style="width: 3.5rem; height: 3.5rem;"><i class="fa-solid fa-play"></i></button>
+                <p class="my-auto hover:text-[#004eff] cursor-pointer font-semibold">Watch Corporate Video</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- INFRASTRUCTURE INSPECTION -->
+    <div class="dvh inspection p-3 md:px-20 flex items-center gap-x-7">
+        <div>
+            <div class="flex md:gap-x-4 gap-x-2 items-center mb-4">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+                <p class="text-medium md:font-bold font-normal">The Best AI Service Provider</p>
+            </div>
+            <h3 class="md:text-5xl text-3xl">Enhances Efficiency, Safety, and Cost-Effectiveness</h3>
+            <ul class="mt-6 text-lg list-disc pl-6">
+                <li class="mb-3">
+                    <span class="font-semibold">Cutting-Edge Solution:</span> Ombrulla leverages AI, drones, and IoT technologies to transform infrastructure inspection.
+                </li>
+                <li class="mb-3">
+                    <span class="font-semibold">Real-Time Insights:</span> Real-time insights enhance inspection efficiency, safety, and reduce conventional challenges.
+                </li>
+                <li class="mb-3">
+                    <span class="font-semibold">Longevity and Cost-Effectiveness:</span> Ombrulla ensures the longevity and safety of critical infrastructure while offering a cost-effective solution.
+                </li>
+                <li class="mb-3">
+                    <span class="font-semibold">Responsive Maintenance:</span> Enhances infrastructure management, increasing reliability and responsiveness, and reducing risks.
+                </li>
+            </ul>
+            <div class="button mt-6 flex gap-4 flex">
+                <button class="btn-primary md:p-4 md:px-8 p-3 rounded-full w-fit hover:bg-transparent hover:text-[#004eff] border border-[#004eff]">Schedule Call</button>
+                <p class="my-auto hidden md:block hover:text-[#004eff] cursor-pointer font-bold">Read More <span class="text-[#004eff]"><i class="bi bi-arrow-up-right"></i></span></p>
+            </div>
+        </div>
+        <div class="max-w-[30rem] flex items-center justify-center hidden md:block">
+            <img src="https://www.ombrulla.com/_astro/ai-infrastructure-inspection.c8f30cbf_ZEO7he.webp" alt="Enhances Efficiency, Safety, and Cost-Effectiveness" class="rounded-xl">
+        </div>
+    </div>
+
+    <!-- VISUAL INSPECTION -->
+    <div class="dvh mt-8 visual p-3 md:px-20 flex flex-row-reverse items-center gap-x-7">
+        <div>
+            <div class="flex md:gap-x-4 gap-x-2 items-center mb-4">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+                <p class="text-medium md:font-bold font-normal">AI VISUAL INSPECTION</p>
+            </div>
+            <h3 class="md:text-5xl text-3xl">Improving Quality with Greater Precision</h3>
+            <ul class="mt-6 text-lg list-disc pl-6">
+                <li class="mb-3">
+                    <span class="font-semibold">Automated Defect Detection:</span> Automated visual inspection uses computer vision and machine learning to identify defects autonomously.
+                </li>
+                <li class="mb-3">
+                    <span class="font-semibold">Advanced Image Processing:</span> It captures and enhances digital images for relevant feature extraction.
+                </li>
+                <li class="mb-3">
+                    <span class="font-semibold">Informed Decision-Making:</span> The system classifies defects, aiding manufacturers in quality control decisions.
+                </li>
+                <li class="mb-3">
+                    <span class="font-semibold">Real-Time Quality Assurance:</span> Integration with manufacturing enables real-time quality control and reduces substandard product risks.
+                </li>
+            </ul>
+            <div class="button mt-6 flex gap-4 flex">
+                <button class="btn-primary md:p-4 md:px-8 p-3 rounded-full w-fit hover:bg-transparent hover:text-[#004eff] border border-[#004eff]">Schedule Call</button>
+                <p class="my-auto hidden md:block hover:text-[#004eff] cursor-pointer font-bold">Read More <span class="text-[#004eff]"><i class="bi bi-arrow-up-right"></i></span></p>
+            </div>
+        </div>
+        <div class="max-w-[30rem] flex items-center justify-center hidden md:block">
+            <img src="https://www.ombrulla.com/_astro/ai-visual-inspection.7625d432_2nYhqo.webp" alt="Improving Quality with Greater Precision" class="rounded-xl">
+        </div>
+    </div>
+
+    <!-- DATA ANALYTICS -->
+    <div class="dvh mt-8 analytics p-3 md:px-20 flex items-center gap-x-7">
+        <div>
+            <div class="flex md:gap-x-4 gap-x-2 items-center mb-4">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+                <p class="text-medium md:font-bold font-normal">AI DATA ANALYTICS</p>
+            </div>
+            <h3 class="md:text-5xl text-3xl">Empowers Businesses to Make Insightful Decisions</h3>
+            <ul class="mt-6 text-lg list-disc pl-6">
+                <li class="mb-3">
+                    <span class="font-semibold">Actionable Insights:</span> AI data analysis enhances decisions, personalizes customer experiences and improve operations.
+                </li>
+                <li class="mb-3">
+                    <span class="font-semibold">Increased Customer Loyalty:</span> AI predictive analytics for personalized recommendations & increased customer loyalty.
+                </li>
+                <li class="mb-3">
+                    <span class="font-semibold">Quality Assurance:</span> AI analytics identifies and mitigates potential issues, ensuring the quality and reliability of products and services.
+                </li>
+                <li class="mb-3">
+                    <span class="font-semibold">Efficiency and Responsiveness:</span> Customers benefit from increased efficiency, improved product quality, and more responsive interactions with businesses.
+                </li>
+            </ul>
+            <div class="button mt-6 flex gap-4 flex">
+                <button class="btn-primary md:p-4 md:px-8 p-3 rounded-full w-fit hover:bg-transparent hover:text-[#004eff] border border-[#004eff]">Schedule Call</button>
+                <p class="my-auto hidden md:block hover:text-[#004eff] cursor-pointer font-bold">Read More <span class="text-[#004eff]"><i class="bi bi-arrow-up-right"></i></span></p>
+            </div>
+        </div>
+        <div class="max-w-[30rem] flex items-center justify-center hidden md:block">
+            <img src="https://www.ombrulla.com/_astro/ai-data-analytics.ef51a904_1g36GR.webp" alt="Empowers Businesses to Make Insightful Decisions" class="rounded-xl">
+        </div>
+    </div>
+
+    <!-- Performance Management -->
+    <div class="dvh mt-8 management p-3 md:px-20 flex flex-wrap gap-y-20 md:flex-nowrap items-center gap-x-7 bg-blue-700 text-white">
+        <div>
+            <div class="flex flex-col md:gap-x-4 gap-x-2 mb-4">
+                <img src="https://www.ombrulla.com/_astro/petran-logo.99970d82_1t8FzR.webp" alt="Petran" style="max-width: 8rem;">
+                <p class="text-medium font-normal"><span class="font-bold">PE</span>rformance - <span class="font-bold">TR</span class="font-bold">acking - <span class="font-bold">AN</span class="font-bold">alytics</p>
+            </div>
+            <h3 class="md:text-5xl text-3xl font-medium">AI & IoT Enabled Asset Performance Management</h3>
+            <p class="mt-6 text-lg font-normal">
+                Petran offers an Asset Performance Management (APM) system that harnesses the power of artificial intelligence and the Internet of Things (IoT) to empower data-driven decision-making and enable proactive maintenance strategies.
+            </p>
+            <div class="button mt-6 flex gap-4 flex">
+                <button class="md:p-4 md:px-8 p-3 rounded-full w-fit hover:text-[black] border border-[white] font-medium">Schedule Call</button>
+                <button class="hover:bg-transparent p-4 rounded-full border border-[white] flex items-center justify-center" style="width: 3.5rem;"><i class="fa-solid fa-play"></i></button>
+                <p class="my-auto font-medium hidden md:block hover:text-[black] cursor-pointer">Watch Video</p>
+            </div>
+        </div>
+        <div class="max-w-[30rem] flex items-center justify-center mb-10">
+            <img src="https://www.ombrulla.com/_astro/asset-performance-management-software.82e2a11d_29kMe4.webp" alt="Asset Performance Management Software" class="rounded-xl">
+        </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="dvh mt-8 products p-3 md:px-20 flex flex-wrap md:flex-nowrap items-center gap-x-7 gap-y-7">
+        <div>
+            <div class="flex md:gap-x-4 gap-x-2 items-center mb-4">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+                <p class="text-medium md:font-bold font-normal">PRODUCTS</p>
+            </div>
+            <h3 class="md:text-5xl text-3xl">Our HR Tools</h3>
+            <p class="mt-6 text-[#82858d] font-normal text-lg">
+                Our job grading and evaluation tool, combined with the compensation management tool, is a highly effective SaaS-based solution. It greatly assists HR consultants and managers in carrying out their roles with efficiency and precision.
+            </p>
+        </div>
+        <div class="bg-[#eff1f5] rounded-xl p-8">
+            <h4 class="font-medium text-2xl">Job Grading and Evaluation</h4>
+            <p class="mt-6 text-[#82858d] font-normal text-lg">
+                Job evaluation assesses and ranks job roles in an organization based on responsibilities and skills, often for compensation and structuring purposes.
+            </p> 
+            <img src="https://www.ombrulla.com/_astro/job-profiler.bfa7dd2f_Z10oyMd.webp" alt="Job Grading and Evaluation" class="p-10">
+            <p class="my-auto hover:text-[#004eff] cursor-pointer font-normal">Free Trail <span class="text-[#004eff]"><i class="bi bi-arrow-up-right"></i></span></p>
+
+        </div>
+        <div class="bg-[#eff1f5] rounded-xl p-8">
+            <h4 class="font-medium text-2xl">Compensation Management</h4>
+            <p class="mt-6 text-[#82858d] font-normal text-lg">
+                Compensation management software automates salary planning, budget management, and equity analysis, ensuring fair and competitive pay practices.
+            </p>
+            <img src="https://www.ombrulla.com/_astro/Comp360.5e1e772f_23KQc0.webp" alt="Compensation Management" class="p-10">
+            <p class="my-auto hover:text-[#004eff] cursor-pointer font-normal">Book For Demo <span class="text-[#004eff]"><i class="bi bi-arrow-up-right"></i></span></p>
+        </div>
+    </div>
+
+    <!-- OUR CUSTOMERS -->
+    <div class="mt-8 mb-8 products p-3 md:px-20 flex flex-col items-center gap-x-7 gap-y-7">
+        <div class="text-center">
+            <div class="flex md:gap-x-4 gap-x-2 items-center mb-4 mx-auto items-center justify-center">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+                <p class="text-medium md:font-bold font-normal">OUR CUSTOMERS</p>
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+            </div>
+            <h3 class="md:text-5xl text-3xl">They Trust Us</h3>
+        </div>
+        <div class="logos">
+            <div class="logo-scroll">
+                <img src="https://www.ombrulla.com/best-western.webp" alt="Best Western" class="p-5 h-[8rem] md:h-[12rem] logo">
+                <img src="https://www.ombrulla.com/dubai-festival-city.webp" alt="Dubai Festival City" class="p-5 h-[8rem] md:h-[12rem] logo">
+                <img src="https://www.ombrulla.com/wild-leaf.webp" alt=" Wild Leaf" class="p-5 h-[8rem] md:h-[12rem] logo">
+                <img src="https://www.ombrulla.com/emirates.webp" alt="Emirates" class="p-5 h-[8rem] md:h-[12rem] logo">
+                <img src="https://www.ombrulla.com/burger-king.webp" alt="Burger King" class="p-5 h-[8rem] md:h-[12rem] logo">
+                <img src="https://www.ombrulla.com/damac.webp" alt="Damac" class="p-5 h-[8rem] md:h-[12rem] logo">
+                <img src="https://www.ombrulla.com/planet-fitness.webp" alt="Planet Fitness" class="p-5 h-[8rem] md:h-[12rem] logo">
+                <img src="https://www.ombrulla.com/suja.webp" alt="Suja" class="p-5 h-[8rem] md:h-[12rem] logo">
+                <img src="https://www.ombrulla.com/azelit.webp" alt="Azelit" class="p-5 h-[8rem] md:h-[12rem] logo">
+            </div>
+        </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="dvh mt-8 testimonials p-3 md:px-20 flex flex-col gap-y-20 gap-x-7 bg-[#001a53] text-white">
+        <div class="mt-8">
+            <div class="flex md:gap-x-4 gap-x-2 items-center mb-4">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+                <p class="text-medium md:font-bold font-normal">OUR TESTIMONIALS</p>
+            </div>
+            <h3 class="md:text-4xl text-3xl font-medium">What Customers Say About Us</h3>
+        </div>
+        <div class="scrollable-cards-container overflow-x-auto">
+            <div class="cards flex gap-x-4 overflow-x-auto">
+                <div class="max-w-[30rem] flex items-center justify-center">
+                    <div class="card bg-white md:w-[30rem] w-[18rem] rounded-lg">
+                        <svg class="h-8 w-8 translate-x-4 translate-y-6 transform text-indigo-600" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true" data-astro-cid-jfcioroc=""><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" data-astro-cid-jfcioroc=""></path></svg>
+                        <div class="p-9">
+                            <p class="text-[#82858d] font-normal text-lg">Ombrulla demonstrates how AI could quickly extract value from our data and show significant economic benefits. Ombrulla comes highly recommended by us and we look forward to collaborating with them on future initiatives.</p>
+                        </div>
+                        <div class="text-sm bg-slate-300 md:p-9 p-2 rounded-b-lg flex items-center gap-x-6">
+                            <div class="card-logo w-[2rem] h-[2rem] md:w-[5rem] md:h-[5rem] rounded-full overflow-hidden">
+                                <img src="https://www.ombrulla.com/_astro/planet-fitness.2b86950e_Z1XdacQ.webp" alt="Planet Fitness">
+                            </div>
+                            <div class="detals font-medium">
+                                <p class="text-black">Joseph</p>
+                                <p class="text-indigo-400">Planet Fitness</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="max-w-[30rem] flex items-center justify-center">
+                    <div class="card bg-white md:w-[30rem] w-[18rem] rounded-lg">
+                        <svg class="h-8 w-8 translate-x-4 translate-y-6 transform text-indigo-600" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true" data-astro-cid-jfcioroc=""><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" data-astro-cid-jfcioroc=""></path></svg>
+                        <div class="p-9">
+                            <p class="text-[#82858d] font-normal text-lg">Ombrulla has exceeded our expectations; they are serious and consistent in their job. Ombrulla and their team of programmers have always been available to us. I would suggest this firm to anyone looking for restaurant data analytics solutions.</p>
+                        </div>
+                        <div class="text-sm bg-slate-300 md:p-9 p-2 rounded-b-lg flex items-center gap-x-6">
+                            <div class="card-logo w-[2rem] h-[2rem] md:w-[5rem] md:h-[5rem] rounded-full overflow-hidden">
+                                <img src="https://www.ombrulla.com/_astro/wild-leaf.85d7f76f_Z1vakWD.webp" alt="Wild Leaf" class="h-full">
+                            </div>
+                            <div class="detals font-medium">
+                                <p class="text-black">Tony Michael</p>
+                                <p class="text-indigo-400">CEO, The Cotillion Hotels, New York, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="max-w-[30rem] flex items-center justify-center">
+                    <div class="card bg-white md:w-[30rem] w-[18rem] rounded-lg">
+                        <svg class="h-8 w-8 translate-x-4 translate-y-6 transform text-indigo-600" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true" data-astro-cid-jfcioroc=""><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" data-astro-cid-jfcioroc=""></path></svg>
+                        <div class="p-9">
+                            <p class="text-[#82858d] font-normal text-lg">We would like to express our gratitude for the collaboration on the development of our Business Intelligence & Analytics solutions. Ombrulla and its analytics team performed admirably and we are pleased with the solution provided to us.</p>
+                        </div>
+                        <div class="text-sm bg-slate-300 md:p-9 p-2 rounded-b-lg flex items-center gap-x-6">
+                            <div class="card-logo w-[2rem] h-[2rem] md:w-[5rem] md:h-[5rem] rounded-full overflow-hidden">
+                                <img src="https://www.ombrulla.com/_astro/best-western.d33d3fe0_Z2qgqbJ.webp" alt="Best Western" class="h-full">
+                            </div>
+                            <div class="detals font-medium">
+                                <p class="text-black">David Thomas</p>
+                                <p class="text-indigo-400">Managing Director Best Western, Kansas, USA.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="max-w-[30rem] flex items-center justify-center">
+                    <div class="card bg-white md:w-[30rem] w-[18rem] rounded-lg">
+                        <svg class="h-8 w-8 translate-x-4 translate-y-6 transform text-indigo-600" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true" data-astro-cid-jfcioroc=""><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" data-astro-cid-jfcioroc=""></path></svg>
+                        <div class="p-9">
+                            <p class="text-[#82858d] font-normal text-lg">Ombrulla's AI-based Employee and Visitor Tracking System has significantly enhanced our workplace operations, seamlessly integrating security and productivity. This implementation has made our organization more efficient and effective.</p>
+                        </div>
+                        <div class="text-sm bg-slate-300 md:p-9 p-2 rounded-b-lg flex items-center gap-x-6">
+                            <div class="card-logo w-[2rem] h-[2rem] md:w-[5rem] md:h-[5rem] rounded-full border-2 overflow-hidden border-white">
+                                <img src="https://www.ombrulla.com/_astro/terranz-other.fe41f67d_Z1IrlCC.webp" alt="Terranz">
+                            </div>
+                            <div class="detals font-medium">
+                                <p class="text-black">James Joseph</p>
+                                <p class="text-indigo-400">Managing Director, Terranz Dubai, UAE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="max-w-[30rem] flex items-center justify-center">
+                    <div class="card bg-white md:w-[30rem] w-[18rem] rounded-lg">
+                        <svg class="h-8 w-8 translate-x-4 translate-y-6 transform text-indigo-600" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true" data-astro-cid-jfcioroc=""><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" data-astro-cid-jfcioroc=""></path></svg>
+                        <div class="p-9">
+                            <p class="text-[#82858d] font-normal text-lg">We are pleased to express our satisfaction with the collaboration with Ombrulla for the execution of scratch and damage detection in cars. We extend our heartfelt gratitude to Ombrulla for their invaluable support throughout this project.</p>
+                        </div>
+                        <div class="text-sm bg-slate-300 md:p-9 p-2 rounded-b-lg flex items-center gap-x-6">
+                            <div class="card-logo w-[2rem] h-[2rem] md:w-[5rem] md:h-[5rem] rounded-full overflow-hidden">
+                                <img src="https://www.ombrulla.com/_astro/azelit.c51d4d1e_ZFoIpv.webp" alt="Azelit" class="h-full">
+                            </div>
+                            <div class="detals font-medium">
+                                <p class="text-black">Vinod MN</p>
+                                <p class="text-indigo-400">Managing Director, AZEL IT Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="max-w-[30rem] flex items-center justify-center">
+                    <div class="card bg-white md:w-[30rem] w-[18rem] rounded-lg">
+                        <svg class="h-8 w-8 translate-x-4 translate-y-6 transform text-indigo-600" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true" data-astro-cid-jfcioroc=""><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" data-astro-cid-jfcioroc=""></path></svg>
+                        <div class="p-9">
+                            <p class="text-[#82858d] font-normal text-lg">Ombrulla's AI-based Employee and Visitor Tracking System has significantly enhanced our workplace operations, seamlessly integrating security and productivity. This implementation has made our organization more efficient and effective.</p>
+                        </div>
+                        <div class="text-sm bg-slate-300 md:p-9 p-2 rounded-b-lg flex items-center gap-x-6">
+                            <div class="card-logo w-[2rem] h-[2rem] md:w-[5rem] md:h-[5rem] rounded-full overflow-hidden border-2 border-white">
+                                <img src="https://www.ombrulla.com/_astro/terranz-other.fe41f67d_Z1IrlCC.webp" alt="Terranz">
+                            </div>
+                            <div class="detals font-medium">
+                                <p class="text-black">Joseph</p>
+                                <p class="text-indigo-400">Terranz Dubai, UAE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="max-w-[30rem] flex items-center justify-center">
+                    <div class="card bg-white md:w-[30rem] w-[18rem] rounded-lg">
+                        <svg class="h-8 w-8 translate-x-4 translate-y-6 transform text-indigo-600" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true" data-astro-cid-jfcioroc=""><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" data-astro-cid-jfcioroc=""></path></svg>
+                        <div class="p-9">
+                            <p class="text-[#82858d] font-normal text-lg">Ombrulla's AI people tracking solution has impressively enhanced our ability to seamlessly monitor and manage foot traffic. The system's accuracy and real-time insights not only streamline operations but also elevate overall security measures.</p>
+                        </div>
+                        <div class="text-sm bg-slate-300 md:p-9 p-2 rounded-b-lg flex items-center gap-x-6">
+                            <div class="card-logo w-[2rem] h-[2rem] md:w-[5rem] md:h-[5rem] rounded-full overflow-hidden">
+                                <img src="https://www.ombrulla.com/_astro/shipcom.ee1ba5d2_o18LH.webp" alt="Shipcom">
+                            </div>
+                            <div class="detals font-medium">
+                                <p class="text-black">Quresh Goga</p>
+                                <p class="text-indigo-400">Shipcom wireless</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="max-w-[30rem] flex items-center justify-center">
+                    <div class="card bg-white md:w-[30rem] w-[18rem] rounded-lg">
+                        <svg class="h-8 w-8 translate-x-4 translate-y-6 transform text-indigo-600" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true" data-astro-cid-jfcioroc=""><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" data-astro-cid-jfcioroc=""></path></svg>
+                        <div class="p-9">
+                            <p class="text-[#82858d] font-normal text-lg">Ombrulla and Green Palm collaborate on an AI ship inspection project, employing image and video analysis to detect damages and anomalies. We are highly satisfied with the project's outcomes and the benefits it brings.</p>
+                        </div>
+                        <div class="text-sm bg-slate-300 md:p-9 p-2 rounded-b-lg flex items-center gap-x-6">
+                            <div class="card-logo w-[2rem] h-[2rem] md:w-[5rem] md:h-[5rem] rounded-full overflow-hidden">
+                                <img src="https://www.ombrulla.com/_astro/green-palmes.41a0af47_Z1Mo497.webp" alt="Green Palms">
+                            </div>
+                            <div class="detals font-medium">
+                                <p class="text-black">Manoj Menon</p>
+                                <p class="text-indigo-400">Green Palm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="flex items-center justify-between">
+                    <div class="left-5 overlay-button flex items-center justify-center bg-slate-600 text-white rounded-full w-[3rem] h-[3rem] cursor-pointer" onclick="scrollCards('left')"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="right-5 overlay-button flex items-center justify-center bg-slate-600 text-white rounded-full w-[3rem] h-[3rem] cursor-pointer" onclick="scrollCards('right')"><i class="fa-solid fa-chevron-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BRAND TRUST -->
+    <div class="hidden md:block dvh mt-8 mb-8 products p-3 md:px-20 flex flex-col items-center gap-x-7 gap-y-7">
+        <div class="text-center">
+            <div class="flex md:gap-x-4 gap-x-2 items-center mb-4 mx-auto items-center justify-center">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+                <p class="text-medium md:font-bold font-normal">BRANDS WE WORK WITH</p>
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+            </div>
+            <h3 class="md:text-5xl text-3xl font-medium">Trusted by Thousands of Businesses</h3>
+        </div>
+        <div class="w-full">
+            <div class="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
+                <div class="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+                    <img src="https://www.ombrulla.com/_astro/unv.85d8fa6f_1oWCsP.webp" alt="unv" class="h-32 w-32" width="940" height="788" loading="lazy" decoding="async">
+                </div>
+                <div class="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+                    <img src="https://www.ombrulla.com/_astro/dahua.d9dec1a0_1788pM.webp" alt="Dahua" class="h-36 w-36" width="940" height="788" loading="lazy" decoding="async">
+                </div>
+                <div class="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+                    <img src="https://www.ombrulla.com/_astro/nvidia.8ba96db4_Z1BLchq.webp" alt="Nvidia" class="h-32 w-32" width="940" height="788" loading="lazy" decoding="async">
+                </div>
+                <div class="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+                    <img src="https://www.ombrulla.com/_astro/amazon.8aa611f6_Zkubpr.webp" alt="Amazon" class="h-36 w-36" width="940" height="788" loading="lazy" decoding="async">
+                </div>
+                <div class="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+                    <img src="https://www.ombrulla.com/_astro/hikvision.2a55c6c2_Z1UqjJV.webp" alt="Hikvision" class="h-36 w-36" width="940" height="788" loading="lazy" decoding="async">
+                </div>
+                <div class="col-span-1 flex justify-center bg-gray-50 py-12 px-8">
+                    <img src="https://www.ombrulla.com/_astro/azure.3a96288f_ZDjkY6.webp" alt="Azure" class="h-24 w-28" width="758" height="447" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOG -->
+    <div class="dvh mt-8 mb-8 products p-3 md:px-20 flex flex-col items-center gap-x-7 gap-y-7">
+        <div class="text-center">
+            <div class="flex md:gap-x-4 gap-x-2 items-center mb-4 mx-auto items-center justify-center">
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+                <p class="text-medium md:font-bold font-normal">BLOG UPDATES</p>
+                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-2 h-2 md:w-2 md:h-2"><path fill="#0000ff" fill-rule="evenodd" d="m0 4.8q0-1 0.4-1.8 0.3-0.9 1-1.6 0.7-0.7 1.6-1 0.8-0.4 1.8-0.4h14.4q1 0 1.8 0.4 0.9 0.3 1.6 1 0.7 0.7 1 1.6 0.4 0.8 0.4 1.8v14.4q0 1-0.4 1.8-0.3 0.9-1 1.6-0.7 0.7-1.6 1-0.8 0.4-1.8 0.4h-14.4q-1 0-1.8-0.4-0.9-0.3-1.6-1-0.7-0.7-1-1.6-0.4-0.8-0.4-1.8z"></path></svg>
+            </div>
+            <h3 class="md:text-5xl text-3xl font-medium">To Read</h3>
+        </div>
+        <hr style="border: 1px solid rgb(234, 234, 234);" class="w-full mt-6 mb-6">
+        <div class="w-full flex flex-wrap md:flex-nowrap gap-4">
+                <div class="blog-card md:w-2/6">
+                    <img src="https://www.ombrulla.com/_astro/blog-1.311eedd5_wt4eW.webp" class="rounded-lg">
+                    <p class="text-xl font-medium mt-3 mb-3">
+                        Privacy and security concerns with Artificial Intelligence
+                    </p>
+                    <p class="text-[#82858d] font-normal text-lg">Privacy and security are significant concerns when it comes to AI. AI systems often require access to large amounts of personal data, which can be ...</p>
+                    <div class="writer flex gap-x-2 items-center mt-5 text-sm">
+                        <img src="https://www.ombrulla.com/_astro/zara-elizabeth.f546c493_wXvHD.webp" alt="Writer Avatar" class="w-12 h-12">
+                        <div>
+                            <p class="font-medium m-0 p-0">Zara Elizabeth</p>
+                            <p class="text-[#82858d] font-normal">Mar 16, 2020 · 6 min read</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card md:w-2/6">
+                    <img src="https://www.ombrulla.com/_astro/blog-1.311eedd5_wt4eW.webp" class="rounded-lg">
+                    <p class="text-xl font-medium mt-3 mb-3">
+                        The impact of AI on jobs and the workforce
+                    </p>
+                    <p class="text-[#82858d] font-normal text-lg">The impact of AI on jobs and the workforce is a topic of much debate and speculation. While some argue that AI will create new job opportunities...</p>
+                    <div class="writer flex gap-x-2 items-center mt-5 text-sm">
+                        <img src="https://www.ombrulla.com/_astro/zara-elizabeth.f546c493_wXvHD.webp" alt="Writer Avatar" class="w-12 h-12">
+                        <div>
+                            <p class="font-medium m-0 p-0">Zara Elizabeth</p>
+                            <p class="text-[#82858d] font-normal">Mar 10, 2020 · 4 min read</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-card md:w-2/6">
+                    <img src="https://www.ombrulla.com/_astro/blog-1.311eedd5_wt4eW.webp"  class="rounded-lg">
+                    <p class="text-xl font-medium mt-3 mb-3">
+                        Bias and fairness in Artificial Intelligence
+                    </p>
+                    <p class="text-[#82858d] font-normal text-lg">Bias and fairness are important considerations in AI, as they can significantly impact the accuracy and effectiveness of AI systems, as well as the social and ethical implications of their use...</p>
+                    <div class="writer flex gap-x-2 items-center mt-5 text-sm">
+                        <img src="https://www.ombrulla.com/_astro/zara-elizabeth.f546c493_wXvHD.webp" alt="Write Avatar" class="w-12 h-12">
+                        <div>
+                            <p class="font-medium m-0 p-0">Zara Elizabeth</p>
+                            <p class="text-[#82858d] font-normal">Feb 12, 2020 · 11 min read</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="dvh mt-16 products p-3 pt-24 md:px-20 bg-[#04102a] text-[#8A99B4]">
+        <div class="flex flex-wrap md:flex-nowrap gap-x-7 gap-y-7">
+            <div class="w-full md:w-1/4 mb-6">
+                <p class="font-medium text-2xl text-[white]">About US</p>
+                <p class="mt-6">Ombrulla is an AI-driven company specializing in extracting insights from diverse data sources, including photos, videos, and data lakes. Our tailored solutions help businesses make data-driven decisions and improve their bottom line through automation and AI-powered analysis.</p>
+                <div class="flex gap-7 text-[white] text-2xl mt-6">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>
+            <div class="w-full md:w-1/4 mb-6">
+                <p class="font-medium text-2xl text-[white]">Our Services</p>
+                <ul class="mt-3">
+                    <li class="mb-2">AI infrastructure Inspection</li>
+                    <li class="mb-2">AI Visual Inspection</li>
+                    <li class="mb-2">AI Data Analytics</li>
+                    <li class="mb-2">AI People Tracking</li>
+                </ul>
+            </div>
+            <div class="w-full md:w-1/4 mb-6">
+                <p class="font-medium text-2xl text-[white]">Our Solutions</p>
+                <ul class="mt-3">
+                    <li class="mb-2">Asset Performance Management</li>
+                    <li class="mb-2">Job Grading & Evaluation</li>
+                    <li class="mb-2">Compensation Management</li>
+                </ul>
+            </div>
+            <div class="w-1/4">
+                <p class="font-medium text-2xl text-[white]">Reach Us</p>
+                <ul class="mt-3">
+                    <li class="mb-3">United Kingdom, 53 Denton close<br>Redhill, Surrey, RH1 5LB<br>+44 787 999 3892</li>
+                    <li class="mb-3">Germany, Schützenstraße 51A<br>Lübeck, 23558<br>+49 179 512 5812</li>
+                    <li class="mb-3">India, No. 154/20, Royal Space<br>Third Floor TI, HSR Layout,<br>Bangalore, Karnataka<br>560102<br>+91 85900 56435</li>
+                </ul>
+            </div>
+        </div>
+        <div class="item-end"><p class="bottom-0 mt-auto text-sm">© 2020 Ombrulla, Inc. All rights reserved.</p></div>
+    </footer>
 
 
-    <!-- TESTING UI -->
 </body>
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/0a674219b9.js" crossorigin="anonymous"></script>
+<!-- JS For card scrolling -->
+<script>
+    function scrollCards(direction) {
+        const container = document.querySelector('.scrollable-cards-container');
+        const scrollAmount = 300;
+
+        if (direction === 'left') {
+            container.scrollLeft -= scrollAmount;
+        } else if (direction === 'right') {
+            container.scrollLeft += scrollAmount;
+        }
+    }
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </html>
